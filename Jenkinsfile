@@ -14,7 +14,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sshagent(['sshclient']) {
+                    ls /home/justin
+              }
             }
         }
     }
