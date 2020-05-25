@@ -4,11 +4,9 @@ pipeline {
             stage('test') {
             agent any
             steps {
-                sshagent ( ['sshclient']) {
+                sshagent ( ['awskey']) {
     sh '''
-ssh justin@192.168.43.161 echo testing connection || true
-ssh-add -L
-echo done running remote windows test
+ls
 '''
   }
             }
