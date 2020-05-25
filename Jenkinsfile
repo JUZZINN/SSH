@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sshagent ( ['sshclient']) {
     sh '''
-ssh justin@192.168.43.161 echo testing connection || true
+ssh justin@JUZZ echo testing connection || true
 ssh-add -L
 echo done running remote windows test
 '''
