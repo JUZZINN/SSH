@@ -7,7 +7,7 @@ pipeline {
                 sshagent ( ['awskey']) {
     
 sh '''
-ssh ec2-user@52.74.83.204
+ssh -tt ec2-user@52.74.83.204
 '''
 
   }
