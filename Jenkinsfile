@@ -6,8 +6,8 @@ pipeline {
             steps {
                 sshagent ( ['awskey']) {
     
-
-ls 
+sh cd /home/ec2-user/jenkins
+sh ls
 
   }
             }
