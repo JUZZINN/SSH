@@ -7,7 +7,7 @@ pipeline {
                 sshagent ( ['awskey']) {
     
 
-ls /home/ec2-user/jenkins
+ls 
 
   }
             }
