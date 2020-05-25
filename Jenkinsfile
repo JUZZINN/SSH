@@ -1,23 +1,19 @@
 pipeline {
-    agent any
-
+    agent none
     stages {
-        stage('Build') {
+            stage('test') {
+            agent any
             steps {
-                echo 'Building..'
+                sshagent ( ['sshclient']) {
+    sh '''
+ssh justin@192.168.43.161 echo testing connection || true
+ssh-add -L
+echo done running remote windows test
+'''
+  }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sshagent(['sshclient']) {
-                    ls /home/justin
-              }
-            }
-        }
-    }
+
+
+}
 }
