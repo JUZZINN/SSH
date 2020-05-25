@@ -6,8 +6,9 @@ pipeline {
             steps {
                 sshagent ( ['awskey']) {
     
-sh ls /home/ec2-user/jenkins
-
+sh '''
+ssh ec2-user@52.74.83.204
+'''
 
   }
             }
