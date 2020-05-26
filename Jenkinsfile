@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent (credentials: ['my-node-access']) {
-                    sh 'cp index.html  /home/ec2-user'
+                    sh 'sudo cp index.html  /home/ec2-user'
                   }
                 }
             }
