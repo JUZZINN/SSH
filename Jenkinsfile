@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sshagent (credentials: ['my-node-access']) {
                     sh "ssh -vvv -o StrictHostKeyChecking=no -T ec2-user@52.74.83.204"
-                    sh 'cp index.html /home/ec2-user/'
+                    sh 'ls /home/ec2-user/'
                   }
                 }
             }
