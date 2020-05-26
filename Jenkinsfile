@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh  mkdir artifact
-                    cp *.html artifact/index.html
+                    cp index.html artifact/
 
             }
         }
