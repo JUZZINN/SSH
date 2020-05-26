@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'index.html'
+                cat 'index.html'
             }
         }
         stage('Test') {
@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent (credentials: ['my-node-access']) {
-                    sh 'sudo cp index.html  /home/ec2-user'
+                    sh 'scp index.html  ec2-user@52.74.83.204:/home/ec2-user'
                   }
                 }
             }
