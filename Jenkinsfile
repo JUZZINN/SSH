@@ -15,8 +15,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sshagent (['my-local-system']) {
-                    sh 'scp -vvv index.html  root@192.168.43.161://home/justin/'
+                sshagent (['my-node-access']) {
+                    sh 'scp -vvv index.html   ec2-user@52.74.83.204:/home/ec2-user'
                 
                   }
                 }
