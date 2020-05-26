@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cat 'index.html'
+                echo 'index.html'
             }
         }
         stage('Test') {
