@@ -15,8 +15,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sshagent (credentials: ['my-node-access']) {
-                    sh 'scp -i index.html  ec2-user@52.74.83.204:/home/ec2-user'
+                sshagent (['my-node-access']) {
+                    sh 'scp  index.html  ec2-user@52.74.83.204:/home/ec2-user'
                 
                   }
                 }
