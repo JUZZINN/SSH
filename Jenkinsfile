@@ -4,10 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh  mkdir html
-                sh cp index.html  html/file.txt
-                
-
+                echo 'index.html'
             }
         }
         stage('Test') {
@@ -17,11 +14,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               sshagent (credentials: ['my-node-access']) {
-                   sh cp   html/* /home/ec2-user/
-               } 
-
+                sshagent (credentials: ['my-node-access']) {
+                    sh 'cp index.html  /home/ec2-user'
+                }
             }
         }
     }
-}
