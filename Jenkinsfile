@@ -16,7 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent (credentials: ['my-node-access']) {
-                    
+                    sh 'ssh -o StrictHostKeyChecking=no -l ec2-user@52.74.83.204'
                     sh 'ls /home/ec2-user/'
                   }
                 }
