@@ -1,17 +1,26 @@
 pipeline {
-    agent none
+    agent any
+
     stages {
-            stage('test') {
-            agent any
+        stage('Build') {
             steps {
-                sshagent (credentials: ['my-node-access']) {
-                  sh "touch newffile"
-                    
-                  
-  }
+                sh  mkdir artifact
+                    cp *.html artifact/index.html
+
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+               sshagent (credentials: ['my-node-access']) {
+                   sh cp  artifact/* /home/ec2-user
+               } 
 
-
-}
+            }
+        }
+    }
 }
