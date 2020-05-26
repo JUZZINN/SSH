@@ -16,6 +16,7 @@ pipeline {
             steps {
                 sshagent (credentials: ['my-node-access']) {
                     sh 'cp index.html  /home/ec2-user'
+                  }
                 }
             }
         }
